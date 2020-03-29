@@ -78,3 +78,36 @@ Player:
 		flip ? to value new letter from either ConsonantCardGenerator or VowelCardGenerator, based on PlaySpace.unknownIsVowel
 		Reduce score by 3
 		Increase team's skips by number of *s in PlaySpace.word
+
+
+Letters Distribution:
+Total: 125
+Vowels: 45
+Consonants: 80
+	a: 10 *
+	b: 5
+	c: 4
+	d: 4
+	e: 14 *
+	f: 3
+	g: 5
+	h: 3
+	i: 8 *
+	j: 1
+	k: 1
+	l: 6
+	m: 3
+	n: 6
+	o: 9 *
+	p: 4
+	q: 3
+	r: 6
+	s: 8
+	t: 6
+	u: 4 *
+	v: 2
+	w: 2
+	x: 3
+	y: 2
+	z: 3
+

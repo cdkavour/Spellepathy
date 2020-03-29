@@ -17,9 +17,6 @@ public class Game {
 	}
 
 	public bool NextIsVowel() {
-		Random RNG = new Random();
-		int rand = RNG.Next(1,10);
-		bool isVowel = (rand > 6);
-		return isVowel;
+		return (new Random().NextDouble() > 0.64);
 	}
 }
