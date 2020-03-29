@@ -1,0 +1,80 @@
+Driver Program:
+	1. Initialize Game
+	2. While no team has reached Phase 6:
+		For each player:
+			Player Take Turn
+
+
+Classes & Data Structures
+	Game Class:
+		TeamArray
+		PlayerArray  	(Need to be same instances as stored in the Team Class)
+		Turn counter	(int)
+		NextIsVowel		(bool: True = next card is Vowel, False = next card is consonant)
+
+	Player Class:
+		Player Letter Hand
+		Player Impactor Hand
+		PlayerID 		(int) - matches index in PlayerArray
+		PartnerID 		(int) - matches index in PlayerArray
+		TeamID			(int) - matches index in TeamArray
+
+
+	Team Class:
+		TeamPlayerArray
+		Score			(int)
+		Phase			(int)
+		PlaySpace 		
+		TeamID			(int) - matches index in TeamArray
+		Skips			(int)
+
+	PlaySpace:
+		word 			(string of * for unplayed, ? for unknown, and chars A-Z)
+		nknownIsVowel	(bool: True for unknown is Vowel, False for unknown is consonant)
+
+	Player Letter Hand -- Dict mapping Letter Card IDs to counts
+	Player Impactor Hand -- Dict mapping Impactor Card IDs to counts
+
+
+Methods & Functions:
+
+Game:
+
+	ConsonantCardGenerator
+	VowelCardGenerator
+
+	LetterCardGenerator -- RNG from [0, TOTAL_LETTER_CARDS-1], maps number to letter card & return that letter card index
+
+	IMPACTORCardGenerator -- RNG from [0-TOTAL_IMPACTOR_CARDS-1], maps number to impactor card & return that impactor card index
+
+Team:
+	PhaseIsComplete():
+		if PlaySpace is complete (no *s left):
+			flip ? to value new letter from either ConsonantCardGenerator or VowelCardGenerator, based on PlaySpace.unknownIsVowel
+			increment team's Phase
+			reset PlaySpace to string of PHASELENGTH[Phase], all ?s.
+
+Player:
+
+	Player.DrawLetter():
+		get letter from LetterCardGenerator, add to hand
+
+	Player.DrawImpactor():
+		get impactor from ImpactorCardGenerator, add to hand
+
+	Player.DiscardLetter(letter):
+		decrement letter cound of letter from hand
+
+	* TODO - Add logic for submitting word, checking word, and giving out penalties/resetting Phase appropriately *
+	Player.PlayLetter(letter, index):
+		set team's PlaySpace.word[index] to letter.
+		decrement letter cound of letter from hand
+		check if Teams[Player.TeamID].PhaseIsComplete()
+
+	Player.RemoveLetter(space):
+		set PlaySpace[index] to *
+
+	Player.PerformReveal:
+		flip ? to value new letter from either ConsonantCardGenerator or VowelCardGenerator, based on PlaySpace.unknownIsVowel
+		Reduce score by 3
+		Increase team's skips by number of *s in PlaySpace.word
