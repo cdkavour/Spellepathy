@@ -1,0 +1,7 @@
+Sooner
+------
+Write Custom Player Actions, starting with Play Letter
+
+Later
+-----
+Proper encapsulation among class objects -- right now all object properties are public

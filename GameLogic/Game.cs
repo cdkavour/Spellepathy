@@ -28,36 +28,36 @@ public class Game {
 		this.numTeams = numTeams;
 		gameOver = false;
 		playerTurn = 0;
-		nextIsVowel = NextIsVowel();
-
-		int playersPerTeam = numPlayers / numTeams;
+		nextIsVowel = Helper.NextIsVowel();
 
 		// Initialize Players
 		players = new Player[numPlayers];
 		for (int i = 0; i < numPlayers; i++) {
 			players[i] = new Player(i, numPlayers, numTeams);
+			players[i].PrintPlayer();
 		}
 
 		// Initialize Teams
 		teams = new Team[numTeams];
 		for (int i = 0; i < numTeams; i++) {
 			teams[i] = new Team(i);
-			teams[i].PrintTeam();
+			// teams[i].PrintTeam();
 		}
+	}
+
+	public void TakeTurn(Player p, Team t) {
+		Console.WriteLine("Player Turn: {0}, Team Turn: {1} == {2}\n", p.playerID, p.teamID, t.teamID);
+		p.DrawLetter();
 	}
 
 	public void PlayGame() {
 
-		while (!gameOver) {
-			Console.WriteLine("Player {0}'s Turn.", playerTurn);
-			
+		while (playerTurn < 3) {
+			int teamTurn = players[playerTurn].teamID;
+			TakeTurn(players[playerTurn], teams[teamTurn]);
 
 
-			gameOver = true;
+			playerTurn++;
 		}
-	}
-
-	public bool NextIsVowel() {
-		return (new Random().NextDouble() > 0.64);
 	}
 }

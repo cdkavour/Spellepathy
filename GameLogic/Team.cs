@@ -4,19 +4,19 @@ public class Team {
 	// Team Player Array
 
 	// Team ID
-	int teamID;
+	public int teamID;
 
 	// Play Space
-	string playspace;
+	public string playspace;
 
 	// Score
-	int score;
+	public int score;
 
 	// Phase
-	int phase;
+	public int phase;
 
 	// Skips
-	int skips;
+	public int skips;
 
 	public Team(int teamID) {
 		this.teamID = teamID;
