@@ -1,9 +1,15 @@
 Sooner
 ------
-Stress Test PlayLetter method
+Word Validation for Completed Words
 Write remaining Custom Player Actions
+Refactor for moving the starting location of words
+Create Impactor Cards
+Add points and scoring (right now, whoever finishes first wins)
 
 Later
 -----
 Proper encapsulation among class objects -- right now all object properties are public
 Pass objects by reference
+Stress Testing
+Generally refactor
+
