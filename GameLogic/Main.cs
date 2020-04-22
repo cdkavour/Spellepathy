@@ -6,14 +6,18 @@ public class Driver {
 	public int NUM_TEAMS = 2;
 
 	public void Run() {
-		Console.WriteLine("Start Spellepathy Game.\n");
+		Console.WriteLine("\n\n#############################################");
+		Console.WriteLine("########## START SPELLEPATHY GAME ###########");
+		Console.WriteLine("#############################################\n\n");
 
 		// Initialize Game
 		Game game = new Game(NUM_PLAYERS, NUM_TEAMS);
 		game.PlayGame();
 
 		// Play Game
-		Console.WriteLine("End Spellepathy Game.");
+		Console.WriteLine("#############################################");
+		Console.WriteLine("########### END SPELLEPATHY GAME ############");
+		Console.WriteLine("#############################################\n\n");
 	}
 }
 

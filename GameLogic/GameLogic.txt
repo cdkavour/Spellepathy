@@ -30,7 +30,7 @@ Classes & Data Structures
 
 	PlaySpace:
 		word 			(string of * for unplayed, ? for unknown, and chars A-Z)
-		nknownIsVowel	(bool: True for unknown is Vowel, False for unknown is consonant)
+		unknownIsVowel	(bool: True for unknown is Vowel, False for unknown is consonant)
 
 	Player Letter Hand -- Dict mapping Letter Card IDs to counts
 	Player Impactor Hand -- Dict mapping Impactor Card IDs to counts
@@ -111,3 +111,6 @@ Consonants: 80
 	y: 2		122
 	z: 3		125
 
+
+
+Make Player and Team FRIENDS so they can share values!!
