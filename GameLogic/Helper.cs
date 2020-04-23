@@ -27,7 +27,7 @@ public static class PlayPhases {
 public class Helper {
 	public static void AutoPopulateHands(Player[] players) {
 		foreach(Player player in players) {
-			for(int i = 0; i < 20; i++) {
+			for(int i = 0; i < 7; i++) {
 				char letter = GetNextLetter();
 				player.letterHand[letter] += 1;
 			}
@@ -37,7 +37,8 @@ public class Helper {
 	public static bool IsValidScrabbleWord(string word) {
 		Console.WriteLine("\nChecking if {0} is a valid word ...", word);
 
-		if(File.ReadAllText("dictionary.json").Contains(word)) {
+		string word_in_quotes = "\"" + word + "\"";
+		if(File.ReadAllText("dictionary.json").Contains(word_in_quotes)) {
 			Console.WriteLine("Word found! :)");
     		return true;
 		}
