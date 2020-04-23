@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 
 public static class Globals {
 	public static Random vowelRNG = new Random();
@@ -34,9 +35,15 @@ public class Helper {
 	}
 
 	public static bool IsValidScrabbleWord(string word) {
+		Console.WriteLine("\nChecking if {0} is a valid word ...", word);
 
+		if(File.ReadAllText("dictionary.json").Contains(word)) {
+			Console.WriteLine("Word found! :)");
+    		return true;
+		}
 
-		return true;
+		Console.WriteLine("Word not found. :(");
+		return false;
 	}
 
 	public static bool NextIsVowel() {
